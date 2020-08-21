@@ -3,9 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { configureFakeApi } from './utilities/configureFakeApi';
+
+// Sets up fake call so we don't need to implement backend
+configureFakeApi();
 
 ReactDOM.render(
   <React.StrictMode>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    {/* We could also use SVG icons, but not a decision thats necessarily important for this example */}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
