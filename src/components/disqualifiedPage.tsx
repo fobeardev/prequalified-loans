@@ -32,6 +32,7 @@ const DisqualifiedPage = (props: QualifiedProps) => {
     )
 }
 
+// Normally, I tend to follow the 1 component per file train of thought
 const PhoneNumberator = ({message}: {message: string}) => {
     const formattedMessage = message.replace(
         /([+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6})/i,
