@@ -21,7 +21,7 @@ export function configureFakeApi() {
                         resolve({ ok: true, text: () => Promise.resolve(JSON.stringify(responseJson)) });
                     } else {
                         // else return error
-                        reject('Rejected');
+                        reject(`We're sorry, you are not qualified at this time. If you believe this to be an error or want more information regarding this matter, please call customer service at 800-555-1212`);
                     }
 
                     return;

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Grid, Button, InputAdornment, Container } from '@material-ui/core';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { LoanApplicationService, LoanApplicationDto } from '../services/loanApplicationService';
+import { useHistory } from "react-router-dom";
+import Routes from '../constants/routes';
 
 type LandingProps = {};
 type LandingState = {
@@ -13,7 +15,8 @@ type LandingState = {
 };
 
 const LandingPage = (props: LandingProps) => {
-
+    const history = useHistory();
+    
     const [fields, setFields] = useState({
         autoPurchasePrice: '',
         autoMake: '',
@@ -45,7 +48,7 @@ const LandingPage = (props: LandingProps) => {
                 alert(result);
             })
             .catch((error) => {
-                alert(error);
+                history.push(Routes.DISQUALIFIED, { message: error })
             });
     }
 

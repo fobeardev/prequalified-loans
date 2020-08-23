@@ -10,6 +10,7 @@ import Routes from './constants/routes';
 import './App.css';
 
 import LandingPage from './components/landingPage';
+import DisqualifiedPage from './components/disqualifiedPage';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         >
           <Route exact path={Routes.LANDING}>
             <LandingPage />
+          </Route>
+          <Route exact path={Routes.DISQUALIFIED}>
+            <DisqualifiedPage />
           </Route>
         </AnimatedSwitch>
       </Router>

@@ -1,3 +1,4 @@
 export default {
-    LANDING: '/'
+    LANDING: '/',
+    DISQUALIFIED: '/disqualified'
 };
