@@ -48,7 +48,8 @@ const LandingPage = (props: LandingProps) => {
                 history.push(Routes.CREATE_ACCOUNT);
             })
             .catch((error) => {
-                history.push(Routes.DISQUALIFIED, { message: error })
+                history.push(Routes.DISQUALIFIED, { message: error });
+                localStorage.setItem('disqualified', JSON.stringify({ message: error }));
             });
     }
 

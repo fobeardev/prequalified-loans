@@ -4,15 +4,28 @@ import { Container, Card, CardContent, Typography } from '@material-ui/core';
 
 type QualifiedProps = {
 };
-type QualifiedState = {
-};
 
 const DisqualifiedPage = (props: QualifiedProps) => {
     const location = useLocation();
-    const state = location.state as {
-        message: string
-    };
-    const {message} = state;
+    const state = location.state as {message: string};
+    let message = state.message;
+
+    if (!message) {
+        const stored = localStorage.getItem('disqualified');
+
+        if (stored) {
+            const parsed = JSON.parse(stored);
+
+            if (parsed) {
+                message = parsed.message;
+            }
+        }
+
+        // This should never hit, but lets put a default message in case
+        if (!message) {
+            message = "We're sorry, you did not qualify. If you believe this to be an error please call customer service."
+        }
+    }
 
     return (
         <React.Fragment>
@@ -34,6 +47,10 @@ const DisqualifiedPage = (props: QualifiedProps) => {
 
 // Normally, I tend to follow the 1 component per file train of thought
 const PhoneNumberator = ({message}: {message: string}) => {
+    if (!message) {
+        return <span></span>;
+    }
+
     const formattedMessage = message.replace(
         /([+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6})/i,
         '<a href="tel:$1">$1</a>');

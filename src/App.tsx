@@ -12,6 +12,7 @@ import './App.css';
 import LandingPage from './components/landingPage';
 import DisqualifiedPage from './components/disqualifiedPage';
 import CreateAccountPage from './components/createAccountPage';
+import { PrivateRoute } from './components/privateRoute';
 
 function App() {
   return (
@@ -23,12 +24,8 @@ function App() {
           atActive={{ opacity: 1 }}
           className='switch-wrapper'
         >
-          <Route exact path={Routes.LANDING}>
-            <LandingPage />
-          </Route>
-          <Route exact path={Routes.CREATE_ACCOUNT}>
-            <CreateAccountPage />
-          </Route>
+          <PrivateRoute exact path={Routes.LANDING} component={LandingPage} />
+          <PrivateRoute exact path={Routes.CREATE_ACCOUNT} component={CreateAccountPage} />
           <Route exact path={Routes.DISQUALIFIED}>
             <DisqualifiedPage />
           </Route>
