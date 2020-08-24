@@ -11,6 +11,7 @@ import './App.css';
 
 import LandingPage from './components/landingPage';
 import DisqualifiedPage from './components/disqualifiedPage';
+import CreateAccountPage from './components/createAccountPage';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         >
           <Route exact path={Routes.LANDING}>
             <LandingPage />
+          </Route>
+          <Route exact path={Routes.CREATE_ACCOUNT}>
+            <CreateAccountPage />
           </Route>
           <Route exact path={Routes.DISQUALIFIED}>
             <DisqualifiedPage />

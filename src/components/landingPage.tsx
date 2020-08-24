@@ -45,7 +45,7 @@ const LandingPage = (props: LandingProps) => {
 
         LoanApplicationService.apply(body)
             .then((result) => {
-                alert(result);
+                history.push(Routes.CREATE_ACCOUNT);
             })
             .catch((error) => {
                 history.push(Routes.DISQUALIFIED, { message: error })

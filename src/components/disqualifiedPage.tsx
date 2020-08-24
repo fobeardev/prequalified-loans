@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, Paper, Card, CardContent, Typography } from '@material-ui/core';
+import { Container, Card, CardContent, Typography } from '@material-ui/core';
 
 type QualifiedProps = {
 };
